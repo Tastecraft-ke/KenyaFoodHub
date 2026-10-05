@@ -29,8 +29,7 @@ OPEN RECIPE
 function openRecipe(recipeName) {
 
 ```
-window.location.href =
-    "recipe.html?food=" + recipeName;
+window.location.href = "recipe.html?food=" + recipeName;
 ```
 
 }
