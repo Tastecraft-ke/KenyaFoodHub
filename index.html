@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Kenya Food Hub</title>
+
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Main Background -->
+<div class="background-image"></div>
+
+<!-- Navigation -->
+<header class="navbar">
+
+    <div class="logo">
+        Kenya<span>Food</span>Hub
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#about">About</a>
+    </nav>
+
+</header>
+
+
+<!-- HOME SECTION -->
+<main>
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                AUTHENTIC KENYAN RECIPES
+            </p>
+
+            <h1>
+                Taste Kenya.<br>
+                <span>One Recipe at a Time.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover delicious Kenyan meals, traditional recipes,
+                nutrition information and simple cooking instructions.
+            </p>
+
+            <a href="#recipes" class="explore-button">
+                Explore Recipes ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECIPES -->
+    <section id="recipes" class="recipes-section">
+
+        <div class="section-heading">
+
+            <p>OUR COLLECTION</p>
+
+            <h2>
+                Choose Your Meal
+            </h2>
+
+            <span>
+                Hover over a meal to preview it, then click to view the full recipe.
+            </span>
+
+        </div>
+
+
+        <!-- Food Cards -->
+
+        <div class="food-grid">
+
+            <!-- Matumbo -->
+            <article class="food-card"
+                data-image="images/matumbo.jpg"
+                onclick="openRecipe('matumbo')">
+
+                <div class="food-image">
+                    <img src="images/matumbo.jpg"
+                         alt="Matumbo Tripe Stew">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">01</span>
+
+                    <h3>Matumbo (Tripe Stew)</h3>
+
+                    <p>
+                        Tender Kenyan-style tripe cooked in a rich
+                        tomato and onion stew.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Beef Sukuma -->
+            <article class="food-card"
+                data-image="images/beef-sukuma.jpg"
+                onclick="openRecipe('beef-sukuma')">
+
+                <div class="food-image">
+                    <img src="images/beef-sukuma.jpg"
+                         alt="Beef with Sukuma Wiki">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">02</span>
+
+                    <h3>Beef with Sukuma Wiki</h3>
+
+                    <p>
+                        Savory beef combined with nutritious
+                        sukuma wiki.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Chicken Ugali -->
+            <article class="food-card"
+                data-image="images/chicken-ugali.jpg"
+                onclick="openRecipe('chicken-ugali')">
+
+                <div class="food-image">
+                    <img src="images/chicken-ugali.jpg"
+                         alt="Chicken Stew with Brown Ugali">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">03</span>
+
+                    <h3>Chicken Stew + Brown Ugali</h3>
+
+                    <p>
+                        Tender chicken stew served with
+                        hearty brown ugali.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Pizza -->
+            <article class="food-card"
+                data-image="images/pizza.jpg"
+                onclick="openRecipe('pizza')">
+
+                <div class="food-image">
+                    <img src="images/pizza.jpg"
+                         alt="Homemade Loaded Cheese Pizza">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">04</span>
+
+                    <h3>Loaded Cheese Pizza</h3>
+
+                    <p>
+                        Homemade pizza loaded with cheese and
+                        delicious toppings.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Eggs -->
+            <article class="food-card"
+                data-image="images/eggs-ugali.jpg"
+                onclick="openRecipe('eggs-ugali')">
+
+                <div class="food-image">
+                    <img src="images/eggs-ugali.jpg"
+                         alt="Scrambled Eggs with Spinach Tomatoes and Ugali">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">05</span>
+
+                    <h3>Scrambled Eggs + Spinach + Ugali</h3>
+
+                    <p>
+                        Protein-rich scrambled eggs with vegetables
+                        served with ugali.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Biryani -->
+            <article class="food-card"
+                data-image="images/biryani.jpg"
+                onclick="openRecipe('biryani')">
+
+                <div class="food-image">
+                    <img src="images/biryani.jpg"
+                         alt="Chicken Biryani">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">06</span>
+
+                    <h3>Chicken Biryani</h3>
+
+                    <p>
+                        Fragrant spiced rice layered with
+                        tender chicken.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Chips Mbuzi -->
+            <article class="food-card"
+                data-image="images/chips-mbuzi.jpg"
+                onclick="openRecipe('chips-mbuzi')">
+
+                <div class="food-image">
+                    <img src="images/chips-mbuzi.jpg"
+                         alt="Chips Mbuzi Dry Fry and Kachumbari">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">07</span>
+
+                    <h3>Chips + Mbuzi Dry Fry + Kachumbari</h3>
+
+                    <p>
+                        Hotel-style Kenyan chips served with
+                        goat dry fry and fresh kachumbari.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Mayai Roll -->
+            <article class="food-card"
+                data-image="images/mayai-roll.jpg"
+                onclick="openRecipe('mayai-roll')">
+
+                <div class="food-image">
+                    <img src="images/mayai-roll.jpg"
+                         alt="Kenyan Mayai Roll">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">08</span>
+
+                    <h3>Kenyan Mayai Roll</h3>
+
+                    <p>
+                        A delicious stuffed bun filled with
+                        egg and flavorful ingredients.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Chapati -->
+            <article class="food-card"
+                data-image="images/chapati-omelette.jpg"
+                onclick="openRecipe('chapati-omelette')">
+
+                <div class="food-image">
+                    <img src="images/chapati-omelette.jpg"
+                         alt="Chapati Omelette Kachumbari Milk Tea">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">09</span>
+
+                    <h3>Chapati + Omelette + Kachumbari</h3>
+
+                    <p>
+                        Rolled chapati with omelette, kachumbari
+                        and Kenyan milk tea.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Chicken Cutlets -->
+            <article class="food-card"
+                data-image="images/chicken-cutlets.jpg"
+                onclick="openRecipe('chicken-cutlets')">
+
+                <div class="food-image">
+                    <img src="images/chicken-cutlets.jpg"
+                         alt="Crispy Chicken Cutlets">
+                </div>
+
+                <div class="food-info">
+
+                    <span class="food-number">10</span>
+
+                    <h3>Crispy Chicken Cutlets</h3>
+
+                    <p>
+                        Crispy on the outside and juicy
+                        chicken cutlets inside.
+                    </p>
+
+                    <button>
+                        View Recipe →
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+
+        <p>ABOUT KENYA FOOD HUB</p>
+
+        <h2>
+            Good food tells a story.
+        </h2>
+
+        <p>
+            Explore traditional Kenyan meals and modern favorites,
+            with recipes, preparation information, nutrition facts,
+            benefits and important food precautions.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Kenya Food Hub
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+```
+
+</body>
+
+</html>
