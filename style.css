@@ -1,0 +1,578 @@
+/* =========================================
+KENYA FOOD HUB
+MAIN WEBSITE STYLES
+========================================= */
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+/* BODY */
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+color: white;
+background: #111;
+overflow-x: hidden;
+}
+
+/* =========================================
+MAIN BACKGROUND
+========================================= */
+
+.background-image {
+position: fixed;
+inset: 0;
+
+```
+background-image:
+    linear-gradient(
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.85)
+    ),
+    url("images/main-food.jpg");
+
+background-size: cover;
+background-position: center;
+
+z-index: -3;
+
+transform: scale(1.05);
+```
+
+}
+
+/* =========================================
+NAVIGATION
+========================================= */
+
+.navbar {
+position: fixed;
+
+```
+top: 0;
+left: 0;
+
+width: 100%;
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+padding: 22px 7%;
+
+background: rgba(0, 0, 0, 0.45);
+
+backdrop-filter: blur(12px);
+
+z-index: 100;
+```
+
+}
+
+.logo {
+font-size: 25px;
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+.logo span {
+color: #f5a623;
+}
+
+.navbar nav {
+display: flex;
+gap: 35px;
+}
+
+.navbar nav a {
+color: white;
+text-decoration: none;
+
+```
+font-size: 15px;
+
+transition: 0.3s;
+```
+
+}
+
+.navbar nav a:hover {
+color: #f5a623;
+}
+
+/* =========================================
+HERO
+========================================= */
+
+.hero {
+min-height: 100vh;
+
+```
+display: flex;
+align-items: center;
+
+padding: 130px 8% 80px;
+```
+
+}
+
+.hero-content {
+max-width: 750px;
+}
+
+.small-title {
+color: #f5a623;
+
+```
+font-size: 14px;
+
+letter-spacing: 4px;
+
+margin-bottom: 20px;
+```
+
+}
+
+.hero h1 {
+font-size: clamp(45px, 7vw, 90px);
+
+```
+line-height: 0.95;
+
+margin-bottom: 30px;
+```
+
+}
+
+.hero h1 span {
+color: #f5a623;
+}
+
+.hero-description {
+max-width: 600px;
+
+```
+font-size: 18px;
+
+line-height: 1.7;
+
+color: #ddd;
+
+margin-bottom: 35px;
+```
+
+}
+
+.explore-button {
+display: inline-block;
+
+```
+padding: 15px 28px;
+
+background: #f5a623;
+
+color: #111;
+
+text-decoration: none;
+
+font-weight: bold;
+
+border-radius: 6px;
+
+transition: 0.3s;
+```
+
+}
+
+.explore-button:hover {
+transform: translateY(-4px);
+
+```
+background: white;
+```
+
+}
+
+/* =========================================
+RECIPES SECTION
+========================================= */
+
+.recipes-section {
+position: relative;
+
+```
+padding: 100px 7%;
+
+background: rgba(0, 0, 0, 0.72);
+```
+
+}
+
+.section-heading {
+text-align: center;
+
+```
+max-width: 700px;
+
+margin: 0 auto 60px;
+```
+
+}
+
+.section-heading p {
+color: #f5a623;
+
+```
+letter-spacing: 3px;
+
+font-size: 13px;
+
+margin-bottom: 12px;
+```
+
+}
+
+.section-heading h2 {
+font-size: 48px;
+
+```
+margin-bottom: 15px;
+```
+
+}
+
+.section-heading span {
+color: #bbb;
+
+```
+line-height: 1.6;
+```
+
+}
+
+/* =========================================
+FOOD GRID
+========================================= */
+
+.food-grid {
+display: grid;
+
+```
+grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+gap: 30px;
+
+max-width: 1400px;
+
+margin: auto;
+```
+
+}
+
+/* =========================================
+FOOD CARD
+========================================= */
+
+.food-card {
+position: relative;
+
+```
+overflow: hidden;
+
+border-radius: 15px;
+
+background: rgba(20, 20, 20, 0.9);
+
+border: 1px solid rgba(255, 255, 255, 0.1);
+
+cursor: pointer;
+
+transition:
+    transform 0.4s ease,
+    border 0.4s ease;
+```
+
+}
+
+.food-card:hover {
+transform: translateY(-10px);
+
+```
+border-color: #f5a623;
+```
+
+}
+
+/* =========================================
+HOVER BACKGROUND EFFECT
+========================================= */
+
+.food-card::before {
+content: "";
+
+```
+position: absolute;
+
+inset: -25px;
+
+background-image:
+    var(--food-background);
+
+background-size: cover;
+
+background-position: center;
+
+filter: blur(18px);
+
+opacity: 0;
+
+transform: scale(1.15);
+
+transition: opacity 0.5s ease;
+
+z-index: 0;
+```
+
+}
+
+.food-card:hover::before {
+opacity: 0.35;
+}
+
+/* DARK LAYER */
+
+.food-card::after {
+content: "";
+
+```
+position: absolute;
+
+inset: 0;
+
+background:
+    linear-gradient(
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.85)
+    );
+
+opacity: 0;
+
+transition: 0.5s;
+
+z-index: 1;
+```
+
+}
+
+.food-card:hover::after {
+opacity: 1;
+}
+
+/* =========================================
+FOOD IMAGE
+========================================= */
+
+.food-image {
+height: 230px;
+
+```
+overflow: hidden;
+
+position: relative;
+
+z-index: 2;
+```
+
+}
+
+.food-image img {
+width: 100%;
+
+```
+height: 100%;
+
+object-fit: cover;
+
+transition: 0.6s;
+```
+
+}
+
+.food-card:hover .food-image img {
+transform: scale(1.08);
+}
+
+/* =========================================
+FOOD INFORMATION
+========================================= */
+
+.food-info {
+position: relative;
+
+```
+z-index: 3;
+
+padding: 25px;
+```
+
+}
+
+.food-number {
+color: #f5a623;
+
+```
+font-size: 13px;
+
+font-weight: bold;
+
+letter-spacing: 2px;
+```
+
+}
+
+.food-info h3 {
+font-size: 22px;
+
+```
+margin: 10px 0 12px;
+```
+
+}
+
+.food-info p {
+color: #ccc;
+
+```
+font-size: 14px;
+
+line-height: 1.6;
+
+margin-bottom: 20px;
+```
+
+}
+
+.food-info button {
+border: none;
+
+```
+background: transparent;
+
+color: #f5a623;
+
+font-weight: bold;
+
+cursor: pointer;
+
+font-size: 14px;
+```
+
+}
+
+/* =========================================
+ABOUT
+========================================= */
+
+.about-section {
+padding: 120px 10%;
+
+```
+text-align: center;
+
+background: rgba(0, 0, 0, 0.8);
+```
+
+}
+
+.about-section > p:first-child {
+color: #f5a623;
+
+```
+letter-spacing: 3px;
+
+font-size: 13px;
+
+margin-bottom: 20px;
+```
+
+}
+
+.about-section h2 {
+font-size: 50px;
+
+```
+margin-bottom: 25px;
+```
+
+}
+
+.about-section p:last-child {
+max-width: 700px;
+
+```
+margin: auto;
+
+color: #bbb;
+
+line-height: 1.8;
+```
+
+}
+
+/* =========================================
+FOOTER
+========================================= */
+
+footer {
+padding: 30px;
+
+```
+text-align: center;
+
+background: #080808;
+
+color: #777;
+```
+
+}
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+```
+.navbar {
+    padding: 18px 5%;
+}
+
+.navbar nav {
+    gap: 15px;
+}
+
+.navbar nav a {
+    font-size: 13px;
+}
+
+.hero {
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+}
+
+.about-section h2 {
+    font-size: 36px;
+}
+```
+
+}
