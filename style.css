@@ -1,921 +1,862 @@
 /* =========================================
-RECIPE PAGE
+   KENYA FOOD HUB
+   MAIN WEBSITE STYLES
 ========================================= */
 
-#recipe-background {
-position: fixed;
-inset: -30px;
-
-```
-background-size: cover;
-background-position: center;
-
-filter: blur(25px);
-
-transform: scale(1.15);
-
-z-index: -3;
-```
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.recipe-overlay {
-position: fixed;
-inset: 0;
-
-```
-background:
-    linear-gradient(
-        rgba(0, 0, 0, 0.65),
-        rgba(0, 0, 0, 0.9)
-    );
-
-z-index: -2;
-```
-
+html {
+    scroll-behavior: smooth;
 }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
+    color: #fff;
+    overflow-x: hidden;
+}
+
 
 /* =========================================
-BACK BUTTON
+   MAIN BACKGROUND
+========================================= */
+
+.background-image {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.78)
+        ),
+        url("images/main-food.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    z-index: -2;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    position: relative;
+
+    width: 100%;
+    min-height: 80px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #e9a23b;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #e9a23b;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 85vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 7%;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.small-title {
+    color: #e9a23b;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 85px);
+
+    line-height: 0.98;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #e9a23b;
+}
+
+.hero-description {
+    max-width: 600px;
+
+    color: #ddd;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+.explore-button {
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    background: #e9a23b;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    border-radius: 4px;
+
+    transition: 0.3s ease;
+}
+
+.explore-button:hover {
+    background: #fff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   RECIPES SECTION
+========================================= */
+
+.recipes-section {
+    padding: 100px 7%;
+
+    background:
+        rgba(10, 10, 10, 0.88);
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.section-heading p {
+    color: #e9a23b;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-size: 48px;
+
+    margin-bottom: 15px;
+}
+
+.section-heading span {
+    color: #aaa;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   FOOD GRID
+========================================= */
+
+.food-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+/* =========================================
+   FOOD CARD
+========================================= */
+
+.food-card {
+    position: relative;
+
+    min-height: 420px;
+
+    overflow: hidden;
+
+    background: #181818;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    isolation: isolate;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Blurred background on hover */
+
+.food-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -30px;
+
+    background-image: var(--food-background);
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter: blur(25px);
+
+    transform: scale(1.15);
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+
+    z-index: -2;
+}
+
+
+/* Dark overlay */
+
+.food-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.92)
+        );
+
+    z-index: -1;
+}
+
+
+/* Hover */
+
+.food-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #e9a23b;
+}
+
+.food-card:hover::before {
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   FOOD IMAGE
+========================================= */
+
+.food-image {
+    width: 100%;
+
+    height: 230px;
+
+    overflow: hidden;
+}
+
+.food-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.food-card:hover .food-image img {
+    transform: scale(1.05);
+
+    filter: brightness(0.7);
+}
+
+
+/* =========================================
+   FOOD INFORMATION
+========================================= */
+
+.food-info {
+    padding: 25px;
+}
+
+.food-number {
+    color: #e9a23b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.food-info h3 {
+    font-size: 25px;
+
+    margin: 10px 0;
+}
+
+.food-info p {
+    color: #bbb;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.food-info button {
+    border: none;
+
+    background: transparent;
+
+    color: #e9a23b;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-section {
+    padding: 110px 7%;
+
+    text-align: center;
+
+    background: #101010;
+}
+
+.about-section > p:first-child {
+    color: #e9a23b;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.about-section h2 {
+    font-size: 45px;
+
+    margin-bottom: 20px;
+}
+
+.about-section > p:last-child {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #aaa;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    background: #080808;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RECIPE PAGE
+========================================= */
+
+
+/* Blurred recipe background */
+
+#recipe-background {
+    position: fixed;
+
+    inset: -30px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    filter: blur(25px);
+
+    transform: scale(1.12);
+
+    z-index: -3;
+}
+
+
+/* Dark layer over recipe background */
+
+.recipe-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    z-index: -2;
+}
+
+
+/* =========================================
+   BACK BUTTON
 ========================================= */
 
 .back-button {
-color: white;
+    display: inline-block;
 
-```
-text-decoration: none;
+    padding: 11px 20px;
 
-padding: 10px 18px;
+    color: #fff;
 
-border: 1px solid rgba(255,255,255,0.3);
+    text-decoration: none;
 
-border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 
-transition: 0.3s;
-```
+    border-radius: 5px;
 
+    font-size: 14px;
+
+    transition: 0.3s ease;
 }
 
 .back-button:hover {
-background: #f5a623;
+    background: #e9a23b;
 
-```
-color: #111;
+    color: #111;
 
-border-color: #f5a623;
-```
-
+    border-color: #e9a23b;
 }
 
+
 /* =========================================
-RECIPE PAGE LAYOUT
+   RECIPE PAGE CONTAINER
 ========================================= */
 
 .recipe-page {
-padding: 150px 7% 80px;
+    padding: 70px 7% 100px;
 }
 
 .recipe-container {
-max-width: 1200px;
+    max-width: 1200px;
 
-```
-margin: auto;
+    margin: auto;
 
-display: grid;
+    display: grid;
 
-grid-template-columns:
-    minmax(300px, 0.9fr)
-    minmax(300px, 1.1fr);
+    grid-template-columns:
+        0.9fr 1.1fr;
 
-gap: 60px;
+    gap: 50px;
 
-align-items: start;
-```
-
+    align-items: start;
 }
 
+
 /* =========================================
-MAIN RECIPE IMAGE
+   RECIPE IMAGE
 ========================================= */
 
 .recipe-image {
-position: sticky;
+    position: sticky;
 
-```
-top: 120px;
+    top: 30px;
 
-border-radius: 18px;
+    overflow: hidden;
 
-overflow: hidden;
+    border-radius: 14px;
 
-box-shadow:
-    0 25px 60px rgba(0,0,0,0.5);
-```
+    border: 1px solid rgba(255, 255, 255, 0.15);
 
+    background: #111;
 }
 
 .recipe-image img {
-width: 100%;
+    width: 100%;
 
-```
-display: block;
+    height: 600px;
 
-aspect-ratio: 4 / 5;
+    object-fit: cover;
 
-object-fit: cover;
-```
-
+    display: block;
 }
 
+
 /* =========================================
-RECIPE CONTENT
+   RECIPE CONTENT
 ========================================= */
 
 .recipe-content {
-background: rgba(0,0,0,0.45);
-
-```
-backdrop-filter: blur(12px);
-
-padding: 40px;
-
-border-radius: 18px;
-
-border: 1px solid rgba(255,255,255,0.1);
-```
-
+    padding: 10px 0;
 }
 
 .recipe-category {
-color: #f5a623;
+    color: #e9a23b;
 
-```
-letter-spacing: 4px;
+    font-size: 12px;
 
-font-size: 12px;
+    font-weight: 700;
 
-font-weight: bold;
+    letter-spacing: 4px;
 
-margin-bottom: 15px;
-```
-
+    margin-bottom: 15px;
 }
 
 .recipe-content h1 {
-font-size: clamp(40px, 5vw, 65px);
+    font-size: clamp(40px, 5vw, 65px);
 
-```
-line-height: 1;
+    line-height: 1.05;
 
-margin-bottom: 20px;
-```
-
+    margin-bottom: 20px;
 }
 
 .recipe-description {
-color: #ccc;
+    color: #d0d0d0;
 
-```
-font-size: 17px;
+    font-size: 17px;
 
-line-height: 1.7;
+    line-height: 1.8;
 
-margin-bottom: 35px;
-```
-
+    margin-bottom: 30px;
 }
 
+
 /* =========================================
-RECIPE STATS
+   RECIPE STATS
 ========================================= */
 
 .recipe-stats {
-display: grid;
+    display: grid;
 
-```
-grid-template-columns:
-    repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
-gap: 10px;
+    gap: 12px;
 
-margin-bottom: 40px;
-```
-
+    margin-bottom: 40px;
 }
 
 .recipe-stats div {
-background: rgba(255,255,255,0.07);
+    padding: 18px;
 
-```
-padding: 18px;
+    background: rgba(255, 255, 255, 0.08);
 
-border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
-text-align: center;
-```
-
+    border-radius: 8px;
 }
 
 .recipe-stats span {
-display: block;
+    display: block;
 
-```
-color: #999;
+    color: #999;
 
-font-size: 10px;
+    font-size: 10px;
 
-letter-spacing: 2px;
+    font-weight: 700;
 
-margin-bottom: 8px;
-```
+    letter-spacing: 1.5px;
 
+    margin-bottom: 8px;
 }
 
 .recipe-stats strong {
-color: #f5a623;
+    display: block;
 
-```
-font-size: 15px;
-```
+    color: #fff;
 
+    font-size: 15px;
+
+    line-height: 1.4;
 }
 
+
 /* =========================================
-RECIPE SECTIONS
+   RECIPE SECTIONS
 ========================================= */
 
 .recipe-section {
-margin-top: 35px;
+    margin-bottom: 35px;
 
-```
-padding-top: 30px;
+    padding-bottom: 30px;
 
-border-top:
-    1px solid rgba(255,255,255,0.12);
-```
-
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .recipe-section h2 {
-font-size: 25px;
+    color: #e9a23b;
 
-```
-margin-bottom: 15px;
+    font-size: 25px;
 
-color: #f5a623;
-```
-
+    margin-bottom: 15px;
 }
 
 .recipe-section p {
-color: #ccc;
+    color: #ccc;
 
-```
-line-height: 1.8;
-```
+    line-height: 1.8;
 
+    font-size: 16px;
 }
 
+
 /* =========================================
-INGREDIENTS
+   INGREDIENTS
 ========================================= */
 
 .recipe-section ul,
 .recipe-section ol {
-padding-left: 22px;
-
-```
-color: #ddd;
-```
-
+    padding-left: 25px;
 }
 
 .recipe-section li {
-margin-bottom: 12px;
+    color: #ddd;
 
-```
-line-height: 1.6;
-```
+    line-height: 1.8;
 
+    margin-bottom: 9px;
+
+    padding-left: 5px;
 }
 
-.recipe-section li::marker {
-color: #f5a623;
+.recipe-section ul li::marker {
+    color: #e9a23b;
 }
+
+.recipe-section ol li::marker {
+    color: #e9a23b;
+
+    font-weight: 700;
+}
+
 
 /* =========================================
-MOBILE RECIPE PAGE
+   MOBILE
 ========================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
-```
-.recipe-container {
-    grid-template-columns: 1fr;
+    .navbar {
+        padding: 18px 5%;
 
-    gap: 30px;
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .navbar nav {
+        gap: 20px;
+    }
+
+    .hero {
+        min-height: 75vh;
+
+        padding: 70px 5%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .recipes-section {
+        padding: 70px 5%;
+    }
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+    }
+
+    .about-section {
+        padding: 80px 5%;
+    }
+
+    .about-section h2 {
+        font-size: 38px;
+    }
+
+    .recipe-page {
+        padding: 40px 5% 70px;
+    }
+
+    .recipe-container {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .recipe-image {
+        position: relative;
+
+        top: auto;
+    }
+
+    .recipe-image img {
+        height: 400px;
+    }
+
+    .recipe-content h1 {
+        font-size: 45px;
+    }
 }
 
-
-.recipe-image {
-    position: relative;
-
-    top: 0;
-}
-
-
-.recipe-content {
-    padding: 25px;
-}
-
-
-.recipe-content h1 {
-    font-size: 40px;
-}
-
-
-.recipe-stats {
-    grid-template-columns: 1fr;
-}
-```
-
-}
 
 /* =========================================
-KENYA FOOD HUB
-MAIN WEBSITE STYLES
+   SMALL PHONES
 ========================================= */
 
-/* RESET */
+@media (max-width: 500px) {
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
+    .logo {
+        font-size: 21px;
+    }
 
-/* BODY */
+    .navbar nav {
+        gap: 14px;
+    }
 
-body {
-font-family: Arial, Helvetica, sans-serif;
-color: white;
-background: #111;
-overflow-x: hidden;
-}
+    .navbar nav a {
+        font-size: 13px;
+    }
 
-/* =========================================
-MAIN BACKGROUND
-========================================= */
+    .hero h1 {
+        font-size: 40px;
+    }
 
-.background-image {
-position: fixed;
-inset: 0;
+    .hero-description {
+        font-size: 16px;
+    }
 
-```
-background-image:
-    linear-gradient(
-        rgba(0, 0, 0, 0.65),
-        rgba(0, 0, 0, 0.85)
-    ),
-    url("images/main-food.jpg");
+    .food-image {
+        height: 200px;
+    }
 
-background-size: cover;
-background-position: center;
+    .food-info h3 {
+        font-size: 22px;
+    }
 
-z-index: -3;
+    .recipe-stats {
+        grid-template-columns: 1fr;
+    }
 
-transform: scale(1.05);
-```
+    .recipe-image img {
+        height: 300px;
+    }
 
-}
+    .recipe-content h1 {
+        font-size: 38px;
+    }
 
-/* =========================================
-NAVIGATION
-========================================= */
+    .back-button {
+        font-size: 12px;
 
-.navbar {
-position: fixed;
-
-```
-top: 0;
-left: 0;
-
-width: 100%;
-
-display: flex;
-justify-content: space-between;
-align-items: center;
-
-padding: 22px 7%;
-
-background: rgba(0, 0, 0, 0.45);
-
-backdrop-filter: blur(12px);
-
-z-index: 100;
-```
-
-}
-
-.logo {
-font-size: 25px;
-font-weight: bold;
-letter-spacing: 1px;
-}
-
-.logo span {
-color: #f5a623;
-}
-
-.navbar nav {
-display: flex;
-gap: 35px;
-}
-
-.navbar nav a {
-color: white;
-text-decoration: none;
-
-```
-font-size: 15px;
-
-transition: 0.3s;
-```
-
-}
-
-.navbar nav a:hover {
-color: #f5a623;
-}
-
-/* =========================================
-HERO
-========================================= */
-
-.hero {
-min-height: 100vh;
-
-```
-display: flex;
-align-items: center;
-
-padding: 130px 8% 80px;
-```
-
-}
-
-.hero-content {
-max-width: 750px;
-}
-
-.small-title {
-color: #f5a623;
-
-```
-font-size: 14px;
-
-letter-spacing: 4px;
-
-margin-bottom: 20px;
-```
-
-}
-
-.hero h1 {
-font-size: clamp(45px, 7vw, 90px);
-
-```
-line-height: 0.95;
-
-margin-bottom: 30px;
-```
-
-}
-
-.hero h1 span {
-color: #f5a623;
-}
-
-.hero-description {
-max-width: 600px;
-
-```
-font-size: 18px;
-
-line-height: 1.7;
-
-color: #ddd;
-
-margin-bottom: 35px;
-```
-
-}
-
-.explore-button {
-display: inline-block;
-
-```
-padding: 15px 28px;
-
-background: #f5a623;
-
-color: #111;
-
-text-decoration: none;
-
-font-weight: bold;
-
-border-radius: 6px;
-
-transition: 0.3s;
-```
-
-}
-
-.explore-button:hover {
-transform: translateY(-4px);
-
-```
-background: white;
-```
-
-}
-
-/* =========================================
-RECIPES SECTION
-========================================= */
-
-.recipes-section {
-position: relative;
-
-```
-padding: 100px 7%;
-
-background: rgba(0, 0, 0, 0.72);
-```
-
-}
-
-.section-heading {
-text-align: center;
-
-```
-max-width: 700px;
-
-margin: 0 auto 60px;
-```
-
-}
-
-.section-heading p {
-color: #f5a623;
-
-```
-letter-spacing: 3px;
-
-font-size: 13px;
-
-margin-bottom: 12px;
-```
-
-}
-
-.section-heading h2 {
-font-size: 48px;
-
-```
-margin-bottom: 15px;
-```
-
-}
-
-.section-heading span {
-color: #bbb;
-
-```
-line-height: 1.6;
-```
-
-}
-
-/* =========================================
-FOOD GRID
-========================================= */
-
-.food-grid {
-display: grid;
-
-```
-grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-
-gap: 30px;
-
-max-width: 1400px;
-
-margin: auto;
-```
-
-}
-
-/* =========================================
-FOOD CARD
-========================================= */
-
-.food-card {
-position: relative;
-
-```
-overflow: hidden;
-
-border-radius: 15px;
-
-background: rgba(20, 20, 20, 0.9);
-
-border: 1px solid rgba(255, 255, 255, 0.1);
-
-cursor: pointer;
-
-transition:
-    transform 0.4s ease,
-    border 0.4s ease;
-```
-
-}
-
-.food-card:hover {
-transform: translateY(-10px);
-
-```
-border-color: #f5a623;
-```
-
-}
-
-/* =========================================
-HOVER BACKGROUND EFFECT
-========================================= */
-
-.food-card::before {
-content: "";
-
-```
-position: absolute;
-
-inset: -25px;
-
-background-image:
-    var(--food-background);
-
-background-size: cover;
-
-background-position: center;
-
-filter: blur(18px);
-
-opacity: 0;
-
-transform: scale(1.15);
-
-transition: opacity 0.5s ease;
-
-z-index: 0;
-```
-
-}
-
-.food-card:hover::before {
-opacity: 0.35;
-}
-
-/* DARK LAYER */
-
-.food-card::after {
-content: "";
-
-```
-position: absolute;
-
-inset: 0;
-
-background:
-    linear-gradient(
-        rgba(0,0,0,0.25),
-        rgba(0,0,0,0.85)
-    );
-
-opacity: 0;
-
-transition: 0.5s;
-
-z-index: 1;
-```
-
-}
-
-.food-card:hover::after {
-opacity: 1;
-}
-
-/* =========================================
-FOOD IMAGE
-========================================= */
-
-.food-image {
-height: 230px;
-
-```
-overflow: hidden;
-
-position: relative;
-
-z-index: 2;
-```
-
-}
-
-.food-image img {
-width: 100%;
-
-```
-height: 100%;
-
-object-fit: cover;
-
-transition: 0.6s;
-```
-
-}
-
-.food-card:hover .food-image img {
-transform: scale(1.08);
-}
-
-/* =========================================
-FOOD INFORMATION
-========================================= */
-
-.food-info {
-position: relative;
-
-```
-z-index: 3;
-
-padding: 25px;
-```
-
-}
-
-.food-number {
-color: #f5a623;
-
-```
-font-size: 13px;
-
-font-weight: bold;
-
-letter-spacing: 2px;
-```
-
-}
-
-.food-info h3 {
-font-size: 22px;
-
-```
-margin: 10px 0 12px;
-```
-
-}
-
-.food-info p {
-color: #ccc;
-
-```
-font-size: 14px;
-
-line-height: 1.6;
-
-margin-bottom: 20px;
-```
-
-}
-
-.food-info button {
-border: none;
-
-```
-background: transparent;
-
-color: #f5a623;
-
-font-weight: bold;
-
-cursor: pointer;
-
-font-size: 14px;
-```
-
-}
-
-/* =========================================
-ABOUT
-========================================= */
-
-.about-section {
-padding: 120px 10%;
-
-```
-text-align: center;
-
-background: rgba(0, 0, 0, 0.8);
-```
-
-}
-
-.about-section > p:first-child {
-color: #f5a623;
-
-```
-letter-spacing: 3px;
-
-font-size: 13px;
-
-margin-bottom: 20px;
-```
-
-}
-
-.about-section h2 {
-font-size: 50px;
-
-```
-margin-bottom: 25px;
-```
-
-}
-
-.about-section p:last-child {
-max-width: 700px;
-
-```
-margin: auto;
-
-color: #bbb;
-
-line-height: 1.8;
-```
-
-}
-
-/* =========================================
-FOOTER
-========================================= */
-
-footer {
-padding: 30px;
-
-```
-text-align: center;
-
-background: #080808;
-
-color: #777;
-```
-
-}
-
-/* =========================================
-MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-```
-.navbar {
-    padding: 18px 5%;
-}
-
-.navbar nav {
-    gap: 15px;
-}
-
-.navbar nav a {
-    font-size: 13px;
-}
-
-.hero {
-    padding-left: 6%;
-    padding-right: 6%;
-}
-
-.section-heading h2 {
-    font-size: 36px;
-}
-
-.about-section h2 {
-    font-size: 36px;
-}
-```
-
+        padding: 9px 14px;
+    }
 }
